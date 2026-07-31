@@ -2,9 +2,7 @@
 *.bck
 *.kicad_pcb-bak
 *-cache.lib
-build
-deps
-fs-build
 *-backups
 *.lck
 *auto_saved_files*
+production
