@@ -7379,6 +7379,120 @@
 			)
 		)
 	)
+	(sheet
+		(at 52.07 180.34)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "0a914e37-4875-47ee-b25a-93389f85908a")
+		(property "Sheetname" "ssr-channel1"
+			(at 52.07 179.5014 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ssr-channel.kicad_sch"
+			(at 52.07 184.8362 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(property "Channel" "1"
+			(at 0 10.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(instances
+			(project "SSR10A"
+				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 52.07 170.18)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "4584d194-32e7-4df1-9e76-d77234c2571f")
+		(property "Sheetname" "ssr-channel0"
+			(at 52.07 169.3414 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ssr-channel.kicad_sch"
+			(at 52.07 174.6762 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(property "Channel" "0"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(instances
+			(project "SSR10A"
+				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
+					(page "2")
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
