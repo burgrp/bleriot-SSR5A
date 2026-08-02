@@ -1,13 +1,11 @@
 {
   "board": {
-    "active_layer": 0,
+    "active_layer": 5,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
-    "hidden_nets": [
-      "GND"
-    ],
-    "high_contrast_mode": 0,
+    "hidden_nets": [],
+    "high_contrast_mode": 1,
     "net_color_mode": 1,
     "opacity": {
       "images": 0.6,
@@ -53,7 +51,7 @@
       "shapes"
     ],
     "visible_layers": "00000000_00000000_00000000_aaaaaaaf",
-    "zone_display_mode": 1
+    "zone_display_mode": 0
   },
   "git": {
     "integration_disabled": false,
@@ -62,7 +60,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "SSR10A.kicad_prl",
+    "filename": "SSR5A.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {

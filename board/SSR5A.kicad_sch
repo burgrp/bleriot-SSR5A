@@ -192,7 +192,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:Antenna"
+		(symbol "Device:Antenna_Shield"
 			(pin_numbers
 				(hide yes)
 			)
@@ -206,7 +206,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "AE"
-				(at -1.905 1.905 0)
+				(at -1.905 4.445 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -216,8 +216,8 @@
 					(justify right)
 				)
 			)
-			(property "Value" "Antenna"
-				(at -1.905 0 0)
+			(property "Value" "Antenna_Shield"
+				(at -1.905 2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -228,7 +228,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 0 0 0)
+				(at 0 2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -239,7 +239,7 @@
 				)
 			)
 			(property "Datasheet" ""
-				(at 0 0 0)
+				(at 0 2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -249,7 +249,7 @@
 					)
 				)
 			)
-			(property "Description" "Antenna"
+			(property "Description" "Antenna with extra pin for shielding"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -271,10 +271,22 @@
 					)
 				)
 			)
-			(symbol "Antenna_0_1"
+			(symbol "Antenna_Shield_0_1"
+				(arc
+					(start 0 -2.667)
+					(mid -0.8485 -2.1032)
+					(end -0.508 -1.143)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0 -3.81)
+						(xy 0 5.08) (xy 0 -3.81)
 					)
 					(stroke
 						(width 0.254)
@@ -286,10 +298,69 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 2.54) (xy 0 -2.54) (xy -1.27 2.54)
+						(xy 0 -2.54) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0.508 -1.143)
+					(mid 0.8046 -2.0885)
+					(end 0 -2.667)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.905) (xy 2.54 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0.762 -1.905)
+					(radius 0.1778)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 5.08) (xy 0 0) (xy -1.27 5.08)
 					)
 					(stroke
 						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 -1.905)
+					)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -297,7 +368,7 @@
 					)
 				)
 			)
-			(symbol "Antenna_1_1"
+			(symbol "Antenna_Shield_1_1"
 				(pin input line
 					(at 0 -5.08 90)
 					(length 2.54)
@@ -309,6 +380,24 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "Shield"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4009,7 +4098,7 @@
 			(uuid "2e32109c-1fbe-4d94-80c9-193b0a039df2")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "R2")
 					(unit 1)
@@ -4099,7 +4188,7 @@
 			(uuid "e72f2dee-d4dd-420b-900c-0661532097df")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "D1")
 					(unit 1)
@@ -4174,7 +4263,7 @@
 			(uuid "da3524aa-2887-46f2-bb63-09b94428f8fb")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR08")
 					(unit 1)
@@ -4275,7 +4364,7 @@
 			(uuid "28a33932-abff-4566-9878-3a5db2f77002")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "U1")
 					(unit 1)
@@ -4352,7 +4441,7 @@
 			(uuid "29ea0cc0-6859-4e79-b600-70c7ef0bae65")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR018")
 					(unit 1)
@@ -4436,7 +4525,7 @@
 			(uuid "b425bf07-39eb-4e50-8152-12b12f6f90cc")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "X1")
 					(unit 1)
@@ -4514,7 +4603,7 @@
 			(uuid "a9432109-488d-4844-9cd9-2d25b5a092d6")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#FLG01")
 					(unit 1)
@@ -4591,9 +4680,86 @@
 			(uuid "5c08668e-91cd-4f0a-b80f-d40169e30bd1")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 36.83 102.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1d1141f9-0474-48f8-a194-29b864788dd8")
+		(property "Reference" "#PWR024"
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 36.83 106.68 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 36.83 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 36.83 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 36.83 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "49436a71-3295-4c9c-a9ac-c7e711f1908b")
+		)
+		(instances
+			(project "SSR5A"
+				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -4668,7 +4834,7 @@
 			(uuid "5181126a-b1f6-49d4-86a7-1c65494ee44f")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR010")
 					(unit 1)
@@ -4745,7 +4911,7 @@
 			(uuid "3278b50e-df04-48a7-b123-5bc863c74b98")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR012")
 					(unit 1)
@@ -4831,87 +4997,9 @@
 			(uuid "9225d0c1-ca0a-4bf3-887d-8c698f7cc8e7")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "Y1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Antenna")
-		(at 39.37 97.79 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3836ff9a-9122-4a43-aa84-4ae2d17929af")
-		(property "Reference" "A1"
-			(at 42.164 97.028 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "31mm"
-			(at 41.91 99.6949 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "RF_Antenna:Texas_SWRA117D_2.4GHz_Right"
-			(at 39.37 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 39.37 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Antenna"
-			(at 39.37 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4a27b9ab-b186-4b3e-a74f-682697c09be1")
-		)
-		(instances
-			(project "SSR10A"
-				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
-					(reference "A1")
 					(unit 1)
 				)
 			)
@@ -4986,7 +5074,7 @@
 			(uuid "cbd9dbde-d254-437a-a855-c19425610acd")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR011")
 					(unit 1)
@@ -5063,7 +5151,7 @@
 			(uuid "46eb2534-3123-45b2-947d-3edd1b6d83ab")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR03")
 					(unit 1)
@@ -5144,7 +5232,7 @@
 			(uuid "9c60292a-bad8-4d97-a354-53d577f40d95")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "C1")
 					(unit 1)
@@ -5222,7 +5310,7 @@
 			(uuid "18893d37-c9db-4395-a3e2-bf7802ac6c41")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR014")
 					(unit 1)
@@ -5299,7 +5387,7 @@
 			(uuid "46aa155a-1a89-4324-b413-dd0ff8ffc9ce")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR07")
 					(unit 1)
@@ -5375,7 +5463,7 @@
 			)
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "H1")
 					(unit 1)
@@ -5452,7 +5540,7 @@
 			(uuid "74f242a2-3a12-4e90-af36-d2fcc387567e")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR01")
 					(unit 1)
@@ -5528,7 +5616,7 @@
 			)
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "H2")
 					(unit 1)
@@ -5609,7 +5697,7 @@
 			(uuid "8d588032-ceb8-42ea-baa9-db5573e821c8")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "C4")
 					(unit 1)
@@ -5686,7 +5774,7 @@
 			(uuid "ccf9e6f9-fa40-4c48-a5a5-4d53a715ca4d")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR09")
 					(unit 1)
@@ -5763,9 +5851,91 @@
 			(uuid "1adcdff9-e309-4a9d-91b2-70fe349b945f")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Antenna_Shield")
+		(at 39.37 97.79 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "82a7e759-4232-483d-a0df-27c23085f507")
+		(property "Reference" "A1"
+			(at 35.56 95.8849 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Antenna_Shield"
+			(at 35.56 98.4249 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "RF_Antenna:Texas_SWRA117D_2.4GHz_Right"
+			(at 39.37 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 39.37 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Antenna with extra pin for shielding"
+			(at 39.37 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "717a0a1f-1874-4ab5-a30e-761949cd3e34")
+		)
+		(pin "2"
+			(uuid "d8d5d167-ca5d-452d-910c-5941e16f4452")
+		)
+		(instances
+			(project "SSR5A"
+				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
+					(reference "A1")
 					(unit 1)
 				)
 			)
@@ -5841,7 +6011,7 @@
 			(uuid "66aa555a-8eb3-4c3b-ad2a-51ee8fa87a76")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#FLG02")
 					(unit 1)
@@ -5926,7 +6096,7 @@
 			(uuid "5dd011e7-cfa4-4cd8-9efe-d9d2056c794a")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "U2")
 					(unit 1)
@@ -6007,7 +6177,7 @@
 			(uuid "6d3555ca-fad4-4c25-8d76-8d9dd184b571")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "C2")
 					(unit 1)
@@ -6084,7 +6254,7 @@
 			(uuid "85558acc-698c-4ec9-9103-9cd3c843f8ee")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR016")
 					(unit 1)
@@ -6163,7 +6333,7 @@
 			(uuid "065404de-8988-47be-8b7c-c28994347eaf")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "R1")
 					(unit 1)
@@ -6244,7 +6414,7 @@
 			(uuid "2085c34c-3182-4d7c-a6d5-34a799b21785")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "C3")
 					(unit 1)
@@ -6415,7 +6585,7 @@
 			(uuid "5f6e1a11-3b61-4bf8-a2eb-2add8c200714")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "U3")
 					(unit 1)
@@ -6492,7 +6662,7 @@
 			(uuid "84649a58-8b4a-413e-a0eb-443054776761")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR013")
 					(unit 1)
@@ -6635,7 +6805,7 @@
 					(unit 1)
 				)
 			)
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "RV1")
 					(unit 1)
@@ -6712,7 +6882,7 @@
 			(uuid "30f5c0c5-6c19-4e27-8679-a71722dcda4b")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR06")
 					(unit 1)
@@ -6796,7 +6966,7 @@
 			(uuid "d6bf3fb3-fe5f-4e7e-b3c5-cb8f4e8c536f")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "IN1")
 					(unit 1)
@@ -6873,7 +7043,7 @@
 			(uuid "1b8e2c23-39e1-486d-8527-a3fa05f3cdb7")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR04")
 					(unit 1)
@@ -6950,7 +7120,7 @@
 			(uuid "5d8cd647-4598-4b31-afc7-64e4669efa4f")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR02")
 					(unit 1)
@@ -7031,7 +7201,7 @@
 			(uuid "e7138983-ccfe-468e-a67a-53f06fa4f197")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "C5")
 					(unit 1)
@@ -7108,7 +7278,7 @@
 			(uuid "c46ac7b4-4ef5-4af1-a86b-3f038587f903")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "#PWR017")
 					(unit 1)
@@ -7190,7 +7360,7 @@
 			(uuid "76408fb8-6941-4090-b076-e213d4301583")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "C6")
 					(unit 1)
@@ -7271,7 +7441,7 @@
 			(uuid "483bb1d4-96d3-4bbf-b497-17769de8057d")
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(reference "C7")
 					(unit 1)
@@ -7329,7 +7499,7 @@
 			)
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(page "3")
 				)
@@ -7386,7 +7556,7 @@
 			)
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(page "6")
 				)
@@ -7443,7 +7613,7 @@
 			)
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(page "2")
 				)
@@ -7500,7 +7670,7 @@
 			)
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(page "5")
 				)
@@ -7557,7 +7727,7 @@
 			)
 		)
 		(instances
-			(project "SSR10A"
+			(project "SSR5A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(page "4")
 				)
