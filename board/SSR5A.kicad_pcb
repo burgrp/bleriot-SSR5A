@@ -10000,7 +10000,7 @@
 		(at 217.95 125)
 		(descr "SMD3225/4, Crystal, 3.2x2.5mm package, SMD, http://www.txccrystal.com/images/pdf/7m-accuracy.pdf")
 		(property "Reference" "Y1"
-			(at -2.95 -1.5 0)
+			(at 0.05 2.5 0)
 			(layer "F.SilkS")
 			(uuid "a823c940-1cb4-495c-8d3c-c0a9b0a49bec")
 			(effects
