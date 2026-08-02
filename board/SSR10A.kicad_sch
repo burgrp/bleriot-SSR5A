@@ -3500,7 +3500,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 148.59) (xy 130.81 148.59)
+			(xy 185.42 148.59) (xy 189.23 148.59)
 		)
 		(stroke
 			(width 0)
@@ -3570,7 +3570,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 148.59) (xy 143.51 148.59)
+			(xy 196.85 148.59) (xy 201.93 148.59)
 		)
 		(stroke
 			(width 0)
@@ -3629,7 +3629,7 @@
 		(uuid "618cc97b-a08d-435e-97d3-7fa9d8e7b4b0")
 	)
 	(label "LED"
-		(at 127 148.59 180)
+		(at 185.42 148.59 180)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4040,7 +4040,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 134.62 148.59 270)
+		(at 193.04 148.59 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4050,7 +4050,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b453945")
 		(property "Reference" "R2"
-			(at 132.08 146.05 90)
+			(at 190.5 146.05 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4060,7 +4060,7 @@
 			)
 		)
 		(property "Value" "330R"
-			(at 137.16 146.05 90)
+			(at 195.58 146.05 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4070,7 +4070,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 134.62 146.812 90)
+			(at 193.04 146.812 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4081,7 +4081,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 134.62 148.59 0)
+			(at 193.04 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4092,7 +4092,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 134.62 148.59 0)
+			(at 193.04 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4119,7 +4119,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 147.32 148.59 180)
+		(at 205.74 148.59 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4129,7 +4129,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b453f49")
 		(property "Reference" "D1"
-			(at 147.32 151.13 0)
+			(at 205.74 151.13 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4139,7 +4139,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 147.32 146.05 0)
+			(at 205.74 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4149,7 +4149,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
-			(at 147.32 148.59 0)
+			(at 205.74 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4160,7 +4160,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 147.32 148.59 0)
+			(at 205.74 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4171,7 +4171,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 147.32 148.59 0)
+			(at 205.74 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4182,7 +4182,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 147.32 148.59 0)
+			(at 205.74 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4209,7 +4209,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 151.13 148.59 90)
+		(at 209.55 148.59 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4219,7 +4219,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b45445d")
 		(property "Reference" "#PWR08"
-			(at 157.48 148.59 0)
+			(at 215.9 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4230,7 +4230,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 155.5242 148.463 0)
+			(at 213.9442 148.463 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4240,7 +4240,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 151.13 148.59 0)
+			(at 209.55 148.59 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4250,7 +4250,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 151.13 148.59 0)
+			(at 209.55 148.59 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4260,7 +4260,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 151.13 148.59 0)
+			(at 209.55 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5409,7 +5409,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 73.66 146.05 0)
+		(at 245.11 147.32 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5420,7 +5420,7 @@
 		(fields_autoplaced yes)
 		(uuid "52c4ea73-17a6-487b-8777-d880db1cbe57")
 		(property "Reference" "H1"
-			(at 76.2 145.4555 0)
+			(at 247.65 146.7255 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5431,7 +5431,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 76.2 147.2177 0)
+			(at 247.65 148.4877 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5442,7 +5442,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.7mm_Pad_Via"
-			(at 73.66 146.05 0)
+			(at 245.11 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5453,7 +5453,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 73.66 146.05 0)
+			(at 245.11 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5464,7 +5464,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 73.66 146.05 0)
+			(at 245.11 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5562,7 +5562,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 73.66 151.13 0)
+		(at 245.11 152.4 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5573,7 +5573,7 @@
 		(fields_autoplaced yes)
 		(uuid "67c6375f-89dc-451c-a686-6ae50550754c")
 		(property "Reference" "H2"
-			(at 76.2 150.5355 0)
+			(at 247.65 151.8055 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5584,7 +5584,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 76.2 152.2977 0)
+			(at 247.65 153.5677 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5595,7 +5595,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.7mm_Pad_Via"
-			(at 73.66 151.13 0)
+			(at 245.11 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5606,7 +5606,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 73.66 151.13 0)
+			(at 245.11 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5617,7 +5617,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 73.66 151.13 0)
+			(at 245.11 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7380,7 +7380,7 @@
 		)
 	)
 	(sheet
-		(at 52.07 180.34)
+		(at 35.56 152.4)
 		(size 12.7 3.81)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7396,7 +7396,7 @@
 		)
 		(uuid "0a914e37-4875-47ee-b25a-93389f85908a")
 		(property "Sheetname" "ssr-channel1"
-			(at 52.07 179.5014 0)
+			(at 35.56 151.5614 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7407,7 +7407,7 @@
 			)
 		)
 		(property "Sheetfile" "ssr-channel.kicad_sch"
-			(at 52.07 184.8362 0)
+			(at 35.56 156.8962 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7418,7 +7418,7 @@
 			)
 		)
 		(property "Channel" "1"
-			(at 0 10.16 0)
+			(at -16.51 -17.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7437,7 +7437,64 @@
 		)
 	)
 	(sheet
-		(at 52.07 170.18)
+		(at 35.56 182.88)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "360d682e-db0f-418a-903b-58d39df8d9b9")
+		(property "Sheetname" "ssr-channel4"
+			(at 35.56 182.0414 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ssr-channel.kicad_sch"
+			(at 35.56 187.3762 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(property "Channel" "4"
+			(at -16.51 12.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(instances
+			(project "SSR10A"
+				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 35.56 142.24)
 		(size 12.7 3.81)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7453,7 +7510,7 @@
 		)
 		(uuid "4584d194-32e7-4df1-9e76-d77234c2571f")
 		(property "Sheetname" "ssr-channel0"
-			(at 52.07 169.3414 0)
+			(at 35.56 141.4014 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7464,7 +7521,7 @@
 			)
 		)
 		(property "Sheetfile" "ssr-channel.kicad_sch"
-			(at 52.07 174.6762 0)
+			(at 35.56 146.7362 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7475,7 +7532,7 @@
 			)
 		)
 		(property "Channel" "0"
-			(at 0 0 0)
+			(at -16.51 -27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7489,6 +7546,120 @@
 			(project "SSR10A"
 				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
 					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 35.56 172.72)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "59e2697f-8b3a-4f22-a616-1720e4e78241")
+		(property "Sheetname" "ssr-channel3"
+			(at 35.56 171.8814 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ssr-channel.kicad_sch"
+			(at 35.56 177.2162 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(property "Channel" "3"
+			(at -16.51 2.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(instances
+			(project "SSR10A"
+				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 35.56 162.56)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a722cb15-efe7-4b81-92fa-686f3c1eb221")
+		(property "Sheetname" "ssr-channel2"
+			(at 35.56 161.7214 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ssr-channel.kicad_sch"
+			(at 35.56 167.0562 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(property "Channel" "2"
+			(at -16.51 -7.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(instances
+			(project "SSR10A"
+				(path "/6b7dd4b9-634f-41b4-b846-9b2e2d6d43c6"
+					(page "4")
 				)
 			)
 		)
