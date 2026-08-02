@@ -737,23 +737,23 @@
     ],
     [
       "4584d194-32e7-4df1-9e76-d77234c2571f",
-      "ssr-channel0"
+      "channel1"
     ],
     [
       "0a914e37-4875-47ee-b25a-93389f85908a",
-      "ssr-channel1"
+      "channel2"
     ],
     [
       "a722cb15-efe7-4b81-92fa-686f3c1eb221",
-      "ssr-channel2"
+      "channel3"
     ],
     [
       "59e2697f-8b3a-4f22-a616-1720e4e78241",
-      "ssr-channel3"
+      "channel4"
     ],
     [
       "360d682e-db0f-418a-903b-58d39df8d9b9",
-      "ssr-channel4"
+      "channel5"
     ]
   ],
   "text_variables": {},
