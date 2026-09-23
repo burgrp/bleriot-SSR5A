@@ -29,9 +29,11 @@ var channelPins = [spec.ChannelCount]machine.Pin{
 }
 
 type Device struct {
-	control  controlState
-	led      ws2812.Device
-	ledBytes [3]byte
+	control     controlState
+	led         ws2812.Device
+	ledBytes    [3]byte
+	online      bool
+	statusDirty bool
 }
 
 func bleriotMain(provisioning node.Provisioning, config spec.Config) {
@@ -45,18 +47,16 @@ func bleriotMain(provisioning node.Provisioning, config spec.Config) {
 	var link linkState
 	for {
 		online, led, changed := bleNode.PollWithStatus()
+		device.online = online
 		if link.update(online) {
 			device.resetDefaults()
 		}
 		if changed {
-			if online {
-				device.setLED(ledColorOnline)
-			} else {
-				if led {
-					device.setLED(ledColorOffline)
-				} else {
-					device.setLED(0)
-				}
+			device.statusDirty = true
+		}
+		if device.statusDirty {
+			if err := device.setStatusLED(led); err == nil {
+				device.statusDirty = false
 			}
 		}
 	}
@@ -67,7 +67,7 @@ func newDevice(config spec.Config) *Device {
 		configureActiveLowOutput(pin)
 	}
 
-	device := &Device{control: newControl(config)}
+	device := &Device{control: newControl(config), statusDirty: true}
 	for index, pin := range channelPins {
 		pin.Set(device.control.pinHigh(index))
 	}
@@ -93,6 +93,7 @@ func (device *Device) Write(tag uint16, value int32, null bool) {
 	index, changed := device.control.write(tag, value, null)
 	if changed {
 		channelPins[index].Set(device.control.pinHigh(index))
+		device.statusDirty = true
 	}
 }
 
@@ -101,6 +102,11 @@ func (device *Device) resetDefaults() {
 	for index, pin := range channelPins {
 		pin.Set(device.control.pinHigh(index))
 	}
+	device.statusDirty = true
+}
+
+func (device *Device) setStatusLED(offlineLED bool) error {
+	return device.setLED(statusLEDColor(device.online, offlineLED, device.control.anyActive()))
 }
 
 func (device *Device) setLED(value int32) error {

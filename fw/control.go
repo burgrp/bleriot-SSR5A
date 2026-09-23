@@ -3,7 +3,8 @@ package main
 import "github.com/burgrp/bleriot-SSR5A/fw/spec"
 
 const (
-	ledColorOnline  = int32(0x008015)
+	ledColorOnline  = int32(0x101010)
+	ledColorActive  = int32(0x104010)
 	ledColorOffline = int32(0xFF0000)
 )
 
@@ -59,6 +60,15 @@ func (state *controlState) resetDefaults() {
 	}
 }
 
+func (state *controlState) anyActive() bool {
+	for index, channel := range state.config.Channels {
+		if !channel.Disabled && state.values[index] != 0 {
+			return true
+		}
+	}
+	return false
+}
+
 func (state *controlState) pinHigh(index int) bool {
 	channel := state.config.Channels[index]
 	if channel.Disabled {
@@ -83,6 +93,19 @@ func normalizeBool(value int32) int32 {
 		return 0
 	}
 	return 1
+}
+
+func statusLEDColor(online, offlineLED, active bool) int32 {
+	if online {
+		if active {
+			return ledColorActive
+		}
+		return ledColorOnline
+	}
+	if offlineLED {
+		return ledColorOffline
+	}
+	return 0
 }
 
 func rgbBytes(value int32) [3]byte {

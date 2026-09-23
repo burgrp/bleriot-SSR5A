@@ -56,8 +56,10 @@ physical output level. This fail-safe also honors `Inverted`; for example, an
 inverted channel with `Default: false` is physically energized while offline.
 Choose defaults for the required safe state of the installation.
 
-The smart LED on `PA6` is steady green-blue while the link is online and blinks
-red while it is offline.
+The smart LED on `PA6` shows the link and logical channel state. While online it
+uses the idle color when every enabled channel register is false and the active
+color when at least one is true, regardless of output inversion. It blinks red
+while the link is offline.
 
 The RF-loss behavior has been verified on hardware: channel 1 was commanded on,
 the hub was stopped, and its active-low MCU output returned inactive after the

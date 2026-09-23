@@ -137,12 +137,68 @@ func TestResetDefaultsRestoresLogicalAndPhysicalStates(t *testing.T) {
 	}
 }
 
+func TestAnyActiveUsesRegisterState(t *testing.T) {
+	tests := map[string]struct {
+		config spec.Config
+		want   bool
+	}{
+		"all off": {},
+		"normal on": {
+			config: spec.Config{Channels: [spec.ChannelCount]spec.ChannelConfig{{Default: true}}},
+			want:   true,
+		},
+		"inverted false is inactive": {
+			config: spec.Config{Channels: [spec.ChannelCount]spec.ChannelConfig{{Inverted: true}}},
+		},
+		"inverted true is active": {
+			config: spec.Config{Channels: [spec.ChannelCount]spec.ChannelConfig{{Inverted: true, Default: true}}},
+			want:   true,
+		},
+		"disabled true never active": {
+			config: spec.Config{Channels: [spec.ChannelCount]spec.ChannelConfig{{Disabled: true, Default: true}}},
+		},
+	}
+
+	for name, test := range tests {
+		t.Run(name, func(t *testing.T) {
+			state := newControl(test.config)
+			if got := state.anyActive(); got != test.want {
+				t.Fatalf("anyActive = %v, want %v", got, test.want)
+			}
+		})
+	}
+}
+
+func TestStatusLEDPolicy(t *testing.T) {
+	tests := map[string]struct {
+		online     bool
+		offlineLED bool
+		active     bool
+		want       int32
+	}{
+		"online idle":       {online: true, want: ledColorOnline},
+		"online active":     {online: true, active: true, want: ledColorActive},
+		"offline LED off":   {active: true, want: 0},
+		"offline LED on":    {offlineLED: true, want: ledColorOffline},
+		"offline overrides": {offlineLED: true, active: true, want: ledColorOffline},
+	}
+
+	for name, test := range tests {
+		t.Run(name, func(t *testing.T) {
+			if got := statusLEDColor(test.online, test.offlineLED, test.active); got != test.want {
+				t.Fatalf("statusLEDColor = %#06x, want %#06x", got, test.want)
+			}
+		})
+	}
+}
+
 func TestStatusLEDColors(t *testing.T) {
 	for name, test := range map[string]struct {
 		value int32
 		want  [3]byte
 	}{
-		"online":  {value: ledColorOnline, want: [3]byte{0x80, 0x00, 0x15}},
+		"online":  {value: ledColorOnline, want: [3]byte{0x10, 0x10, 0x10}},
+		"active":  {value: ledColorActive, want: [3]byte{0x40, 0x10, 0x10}},
 		"offline": {value: ledColorOffline, want: [3]byte{0x00, 0xFF, 0x00}},
 	} {
 		t.Run(name, func(t *testing.T) {
