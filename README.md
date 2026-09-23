@@ -97,10 +97,6 @@ With a Registry server running, start the local hub:
 go -C fw run . hub --registry http://localhost:8080 --diagnostics rf
 ```
 
-The current firmware has been built, flashed, and tested on the board. All five
-registers were read and written over the complete node, PAN2110, hub, and
-Registry path, and the outputs were left off after testing.
-
 ## Safety
 
 This design connects directly to hazardous mains voltage. Assembly,
