@@ -4,6 +4,8 @@ SSR5A is a mains-powered five-channel BleRiot switch intended primarily for
 zone thermo-electric actuators in hydronic heating systems. Each independently
 controlled output switches mains line through a zero-cross optotriac and triac.
 
+![alt SSR5A PCB](pcb.png)
+
 The board combines a PY32F030 microcontroller, PAN2110 radio, five output
 channels, a WS2812B status LED, and an isolated 3.3 V mains power supply. The
 outputs are on/off switches; they are not phase-angle dimmers.
