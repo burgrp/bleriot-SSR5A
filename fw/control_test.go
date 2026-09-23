@@ -83,8 +83,72 @@ func TestDisabledNullAndUnknownWritesAreIgnored(t *testing.T) {
 	}
 }
 
-func TestStartupLEDIsHalfGreen(t *testing.T) {
-	if got, want := rgbBytes(startupLEDGreenRGB), [3]byte{0x80, 0x00, 0x00}; got != want {
-		t.Fatalf("startup LED bytes = % X, want GRB % X", got, want)
+func TestLinkStateReportsOnlyOnlineToOfflineTransitions(t *testing.T) {
+	var state linkState
+	for index, update := range []struct {
+		online      bool
+		wentOffline bool
+	}{
+		{online: false, wentOffline: false},
+		{online: false, wentOffline: false},
+		{online: true, wentOffline: false},
+		{online: true, wentOffline: false},
+		{online: false, wentOffline: true},
+		{online: false, wentOffline: false},
+	} {
+		if got := state.update(update.online); got != update.wentOffline {
+			t.Errorf("update %d went offline = %v, want %v", index, got, update.wentOffline)
+		}
+	}
+}
+
+func TestResetDefaultsRestoresLogicalAndPhysicalStates(t *testing.T) {
+	config := spec.Config{Channels: [spec.ChannelCount]spec.ChannelConfig{
+		{},
+		{Default: true},
+		{Inverted: true},
+		{Inverted: true, Default: true},
+		{Disabled: true, Inverted: true, Default: true},
+	}}
+	state := newControl(config)
+	state.write(spec.RegChannel1, 1, false)
+	state.write(spec.RegChannel2, 0, false)
+	state.write(spec.RegChannel3, 1, false)
+	state.write(spec.RegChannel4, 0, false)
+
+	state.resetDefaults()
+	wantValues := [spec.ChannelCount]int32{0, 1, 0, 1, 1}
+	wantPinHigh := [spec.ChannelCount]bool{true, false, false, true, true}
+	if state.values != wantValues {
+		t.Fatalf("values after reset = %v, want %v", state.values, wantValues)
+	}
+	for index, want := range wantPinHigh {
+		if got := state.pinHigh(index); got != want {
+			t.Errorf("channel %d pin high after reset = %v, want %v", index+1, got, want)
+		}
+	}
+
+	state.resetDefaults()
+	if state.values != wantValues {
+		t.Fatalf("values after repeated reset = %v, want %v", state.values, wantValues)
+	}
+	if value, null := state.read(spec.RegChannel5); !null || value != 0 {
+		t.Errorf("disabled channel read after reset = (%d, %v), want (0, true)", value, null)
+	}
+}
+
+func TestStatusLEDColors(t *testing.T) {
+	for name, test := range map[string]struct {
+		value int32
+		want  [3]byte
+	}{
+		"online":  {value: ledColorOnline, want: [3]byte{0x80, 0x00, 0x15}},
+		"offline": {value: ledColorOffline, want: [3]byte{0x00, 0xFF, 0x00}},
+	} {
+		t.Run(name, func(t *testing.T) {
+			if got := rgbBytes(test.value); got != test.want {
+				t.Fatalf("LED bytes = % X, want GRB % X", got, test.want)
+			}
+		})
 	}
 }

@@ -2,7 +2,20 @@ package main
 
 import "github.com/burgrp/bleriot-SSR5A/fw/spec"
 
-const startupLEDGreenRGB = int32(0x008000)
+const (
+	ledColorOnline  = int32(0x008015)
+	ledColorOffline = int32(0xFF0000)
+)
+
+type linkState struct {
+	online bool
+}
+
+func (state *linkState) update(online bool) (wentOffline bool) {
+	wentOffline = state.online && !online
+	state.online = online
+	return wentOffline
+}
 
 type controlState struct {
 	config spec.Config
@@ -11,11 +24,7 @@ type controlState struct {
 
 func newControl(config spec.Config) controlState {
 	state := controlState{config: config}
-	for index, channel := range config.Channels {
-		if channel.Default {
-			state.values[index] = 1
-		}
-	}
+	state.resetDefaults()
 	return state
 }
 
@@ -39,6 +48,15 @@ func (state *controlState) write(tag uint16, value int32, null bool) (index int,
 	}
 	state.values[index] = value
 	return index, true
+}
+
+func (state *controlState) resetDefaults() {
+	for index, channel := range state.config.Channels {
+		state.values[index] = 0
+		if channel.Default {
+			state.values[index] = 1
+		}
+	}
 }
 
 func (state *controlState) pinHigh(index int) bool {

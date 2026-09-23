@@ -42,8 +42,23 @@ func bleriotMain(provisioning node.Provisioning, config spec.Config) {
 		halt("failed to start BleRiot node: " + err.Error())
 	}
 
+	var link linkState
 	for {
-		bleNode.Poll()
+		online, led, changed := bleNode.PollWithStatus()
+		if link.update(online) {
+			device.resetDefaults()
+		}
+		if changed {
+			if online {
+				device.setLED(ledColorOnline)
+			} else {
+				if led {
+					device.setLED(ledColorOffline)
+				} else {
+					device.setLED(0)
+				}
+			}
+		}
 	}
 }
 
@@ -61,9 +76,6 @@ func newDevice(config spec.Config) *Device {
 	pinSmartLED.Low()
 	pinSmartLED.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	device.led = ws2812.NewWS2812(pinSmartLED)
-	if err := device.applyLED(startupLEDGreenRGB); err != nil {
-		halt("failed to start smart LED: " + err.Error())
-	}
 	return device
 }
 
@@ -84,7 +96,14 @@ func (device *Device) Write(tag uint16, value int32, null bool) {
 	}
 }
 
-func (device *Device) applyLED(value int32) error {
+func (device *Device) resetDefaults() {
+	device.control.resetDefaults()
+	for index, pin := range channelPins {
+		pin.Set(device.control.pinHigh(index))
+	}
+}
+
+func (device *Device) setLED(value int32) error {
 	device.ledBytes = rgbBytes(value)
 	_, err := device.led.Write(device.ledBytes[:])
 	return err

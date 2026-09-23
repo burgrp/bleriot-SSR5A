@@ -11,13 +11,14 @@ import (
 
 var (
 	far          = inventory.Channel{Name: "far", Number: 37, SpreadFactor: config.SpreadFactorS8}
-	deviceConfig = spec.Config{Channels: [spec.ChannelCount]spec.ChannelConfig{
-		{Disabled: false, Inverted: false, Default: false},
-		{Disabled: false, Inverted: false, Default: false},
-		{Disabled: false, Inverted: false, Default: false},
-		{Disabled: false, Inverted: false, Default: false},
-		{Disabled: false, Inverted: false, Default: false},
-	}}
+	deviceConfig = spec.Config{
+		Channels: [spec.ChannelCount]spec.ChannelConfig{
+			{Disabled: false, Inverted: false, Default: false},
+			{Disabled: false, Inverted: false, Default: false},
+			{Disabled: false, Inverted: false, Default: false},
+			{Disabled: false, Inverted: false, Default: false},
+			{Disabled: false, Inverted: false, Default: false},
+		}}
 )
 
 func main() {

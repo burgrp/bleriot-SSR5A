@@ -43,11 +43,26 @@ Each channel has inventory-as-code configuration in
 
 - `Disabled` omits the register and holds the physical output off.
 - `Inverted` reverses the logical-to-physical output mapping.
-- `Default` selects the logical value applied after power-on.
+- `Default` selects the logical value applied after power-on and RF link loss.
 
 Disabled takes precedence over inversion and the default. At startup, firmware
 first biases every active-low triac control inactive, then applies the configured
-defaults. The smart LED on `PA6` starts at 50% green.
+defaults.
+
+The node considers the BleRiot link offline after five seconds without a valid
+packet. On the online-to-offline transition, it immediately restores every
+channel to its configured logical `Default` and reapplies the corresponding
+physical output level. This fail-safe also honors `Inverted`; for example, an
+inverted channel with `Default: false` is physically energized while offline.
+Choose defaults for the required safe state of the installation.
+
+The smart LED on `PA6` is steady green-blue while the link is online and blinks
+red while it is offline.
+
+The RF-loss behavior has been verified on hardware: channel 1 was commanded on,
+the hub was stopped, and its active-low MCU output returned inactive after the
+five-second link timeout. After reconnecting, all five registers reported their
+configured false defaults.
 
 ## Hardware And Firmware
 
