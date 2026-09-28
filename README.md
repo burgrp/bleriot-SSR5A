@@ -39,7 +39,7 @@ An enabled channel is exposed as a writable boolean register:
 | 5 | `ssr.channel.5` |
 
 Each channel has inventory-as-code configuration in
-[`fw/test-hub.go`](fw/test-hub.go):
+[`fw/cmd/dev/main.go`](fw/cmd/dev/main.go):
 
 - `Disabled` omits the register and holds the physical output off.
 - `Inverted` reverses the logical-to-physical output mapping.
@@ -80,16 +80,20 @@ configured false defaults.
 | PAN2110 SCK | `PA5` |
 | PAN2110 data | `PA7` |
 
-The firmware uses TinyGo and targets the `py32f030x8` profile. Its local hub
-inventory bridges the radio node to a Registry server. The SWD connector carries
-SWDIO, ground, and SWCLK but no reset or target-voltage connection, so the
-project's pyOCD commands use attach mode.
+The importable `ssr5a` firmware exports `Run` and targets the `py32f030x8`
+profile. Its device type owns the scheduler-none build policy and 100 kHz
+attach-mode pyOCD settings. The local inventory bridges the radio node to a
+Registry server. The SWD connector carries SWDIO, ground, and SWCLK but no reset
+or target-voltage connection.
 
 ## Repository Layout
 
 - [`board/`](board/) contains the KiCad schematic, PCB, BOM, and fabrication
   outputs.
-- [`fw/`](fw/) contains the TinyGo node firmware, tests, and local hub inventory.
+- [`fw/`](fw/) contains the importable TinyGo firmware, tests, and build profile.
+- [`fw/spec/`](fw/spec/) contains configuration, the config-dependent register
+  table, chip, and firmware manifest.
+- [`fw/cmd/dev/`](fw/cmd/dev/) contains the local inventory and BleRiot CLI.
 - [`fw-orig/`](fw-orig/) contains the original MicroPython firmware for reference.
 - [`sub/hw-kicad/`](sub/hw-kicad/) is the shared KiCad library submodule.
 
@@ -106,14 +110,15 @@ binutils, and pyOCD with the Puya CMSIS pack.
 
 ```sh
 go -C fw test ./...
-go -C fw run . make ssr build
-go -C fw run . make ssr flash
+go -C fw run ./cmd/dev node gen --name ssr
+go -C fw run ./cmd/dev node build --name ssr --disassembly
+go -C fw run ./cmd/dev node build --name ssr --flash --rtt
 ```
 
 With a Registry server running, start the local hub:
 
 ```sh
-go -C fw run . hub --registry http://localhost:8080 --diagnostics rf
+go -C fw run ./cmd/dev hub --registry http://localhost:8080 --diagnostics rf
 ```
 
 ## Safety

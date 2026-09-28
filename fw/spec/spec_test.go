@@ -1,6 +1,10 @@
 package spec
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/burgrp/bleriot/lib/shared/firmware"
+)
 
 func TestTypeProvidesAllChannelsByDefault(t *testing.T) {
 	deviceType := Type(Config{})
@@ -15,6 +19,19 @@ func TestTypeProvidesAllChannelsByDefault(t *testing.T) {
 		if register.Tag != uint16(index+1) || register.Name != channelNames[index] {
 			t.Errorf("register %d = (%d, %q), want (%d, %q)", index, register.Tag, register.Name, index+1, channelNames[index])
 		}
+	}
+}
+
+func TestFirmwareProfile(t *testing.T) {
+	profile := Type(Config{}).Firmware
+	if profile.Package != "github.com/burgrp/bleriot-SSR5A/fw" {
+		t.Fatalf("firmware package = %q", profile.Package)
+	}
+	if profile.TinyGo.Scheduler != firmware.SchedulerNone || profile.TinyGo.StackSizeBytes != 0 {
+		t.Fatalf("TinyGo profile = %+v", profile.TinyGo)
+	}
+	if profile.PyOCD.FrequencyHz != 100_000 || profile.PyOCD.LoadMode != firmware.ConnectAttach || profile.PyOCD.RTTMode != firmware.ConnectAttach || profile.PyOCD.GDBMode != firmware.ConnectAttach {
+		t.Fatalf("pyOCD profile = %+v", profile.PyOCD)
 	}
 }
 

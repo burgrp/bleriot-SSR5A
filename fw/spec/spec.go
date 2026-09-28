@@ -1,6 +1,7 @@
 package spec
 
 import (
+	"github.com/burgrp/bleriot/lib/shared/firmware"
 	"github.com/burgrp/bleriot/lib/shared/inventory"
 	"github.com/burgrp/bleriot/lib/shared/puya"
 )
@@ -38,8 +39,24 @@ var (
 
 func Type(config Config) inventory.DeviceType {
 	deviceType := inventory.DeviceType{
-		Name:      "ssr5a",
-		Chip:      Chip,
+		Name: "ssr5a",
+		Chip: Chip,
+		Firmware: firmware.Manifest{
+			Package: "github.com/burgrp/bleriot-SSR5A/fw",
+			TinyGo: firmware.TinyGoProfile{
+				Scheduler:        firmware.SchedulerNone,
+				GarbageCollector: firmware.GCLeaking,
+				Serial:           firmware.SerialRTT,
+				SizeReport:       firmware.SizeReportHTML,
+				PrintAllocs:      true,
+			},
+			PyOCD: firmware.PyOCDProfile{
+				FrequencyHz: 100_000,
+				LoadMode:    firmware.ConnectAttach,
+				RTTMode:     firmware.ConnectAttach,
+				GDBMode:     firmware.ConnectAttach,
+			},
+		},
 		Registers: make([]inventory.Register, 0, ChannelCount),
 	}
 	for index, channel := range config.Channels {

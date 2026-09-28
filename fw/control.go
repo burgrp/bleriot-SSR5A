@@ -1,4 +1,4 @@
-package main
+package ssr5a
 
 import "github.com/burgrp/bleriot-SSR5A/fw/spec"
 

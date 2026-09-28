@@ -1,4 +1,4 @@
-package main
+package ssr5a
 
 import (
 	"testing"

@@ -1,5 +1,4 @@
-//go:build !tinygo
-
+// Command dev is the local SSR5A inventory and BleRiot CLI.
 package main
 
 import (

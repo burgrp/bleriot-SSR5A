@@ -1,6 +1,6 @@
 //go:build tinygo
 
-package main
+package ssr5a
 
 import (
 	"machine"
@@ -36,7 +36,8 @@ type Device struct {
 	statusDirty bool
 }
 
-func bleriotMain(provisioning node.Provisioning, config spec.Config) {
+// Run starts the SSR5A firmware with baked provisioning and configuration.
+func Run(provisioning node.Provisioning, config spec.Config) {
 	device := newDevice(config)
 
 	bleNode, err := pan211x.StartNode(provisioning, pinSpiSck, pinSpiData, pinSpiCsn, device)
